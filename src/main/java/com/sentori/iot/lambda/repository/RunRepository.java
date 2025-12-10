@@ -6,6 +6,7 @@ import jakarta.inject.Inject;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import software.amazon.awssdk.enhanced.dynamodb.DynamoDbEnhancedClient;
 import software.amazon.awssdk.enhanced.dynamodb.DynamoDbTable;
+import software.amazon.awssdk.enhanced.dynamodb.Expression;
 import software.amazon.awssdk.enhanced.dynamodb.Key;
 import software.amazon.awssdk.enhanced.dynamodb.TableSchema;
 import software.amazon.awssdk.enhanced.dynamodb.model.PageIterable;
@@ -73,16 +74,16 @@ public class RunRepository {
         Map<String, AttributeValue> expressionValues = new HashMap<>();
         expressionValues.put(":status", AttributeValue.builder().s("RUNNING").build());
         
+        Expression filterExpression = Expression.builder()
+                .expression("status = :status")
+                .expressionValues(expressionValues)
+                .build();
+        
         PageIterable<RunEntity> pages = getTable().scan(ScanEnhancedRequest.builder()
-                .filterExpression(software.amazon.awssdk.services.dynamodb.model.AttributeValue.builder()
-                        .s("status = :status")
-                        .build()
-                        .toString())
+                .filterExpression(filterExpression)
                 .build());
         
-        return pages.items().stream()
-                .filter(run -> "RUNNING".equals(run.getStatus()))
-                .count();
+        return pages.items().stream().count();
     }
 
     public List<RunEntity> findRunning() {

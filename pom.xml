@@ -38,67 +38,84 @@
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-arc</artifactId>
+            <version>3.16.3</version>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-resteasy-reactive-jackson</artifactId>
+            <artifactId>quarkus-rest-jackson</artifactId>
+            <version>3.16.3</version>
         </dependency>
 
         <!-- AWS Lambda -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-amazon-lambda-rest</artifactId>
+            <version>3.16.3</version>
         </dependency>
 
         <!-- AWS DynamoDB -->
         <dependency>
-            <groupId>io.quarkus</groupId>
+            <groupId>io.quarkiverse.amazonservices</groupId>
             <artifactId>quarkus-amazon-dynamodb</artifactId>
+            <version>2.12.2</version>
         </dependency>
         <dependency>
             <groupId>software.amazon.awssdk</groupId>
             <artifactId>dynamodb-enhanced</artifactId>
+            <version>2.25.60</version>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>url-connection-client</artifactId>
+            <version>2.25.60</version>
         </dependency>
 
         <!-- JSON Processing -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-jackson</artifactId>
+            <version>3.16.3</version>
         </dependency>
 
         <!-- Validation -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-hibernate-validator</artifactId>
+            <version>3.16.3</version>
         </dependency>
 
         <!-- Health checks -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-smallrye-health</artifactId>
+            <version>3.16.3</version>
         </dependency>
 
         <!-- OpenAPI/Swagger -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-smallrye-openapi</artifactId>
+            <version>3.16.3</version>
         </dependency>
 
         <!-- Micrometer pour métriques (compatible avec le projet Spring Boot) -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-micrometer-registry-prometheus</artifactId>
+            <version>3.16.3</version>
         </dependency>
 
         <!-- Testing -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-junit5</artifactId>
+            <version>3.16.3</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
+            <version>5.3.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
